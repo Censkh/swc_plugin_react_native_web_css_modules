@@ -1,0 +1,24 @@
+{
+  "name": "swc-plugin-react-native-web-css-modules",
+  "version": "0.0.1",
+  "description": "Transform CSS module exports into RNW compatible format",
+  "author": "09jwater@gmail.com <James Waterhouse>",
+  "license": "ISC",
+  "keywords": [
+    "swc-plugin"
+  ],
+  "types": "./types.d.ts",
+  "main": "./swc_plugin_react_native_web_css_modules.wasm",
+  "scripts": {
+    "build": "cargo build --release --target=wasm32-wasi && cp target/wasm32-wasi/release/swc_plugin_react_native_web_css_modules.wasm swc_plugin_react_native_web_css_modules.wasm",
+    "dev": "cargo watch -x \"build --release --target=wasm32-wasi\""
+  },
+  "files": [
+    "swc_plugin_react_native_web_css_modules.wasm",
+    "next.js",
+    "types.d.ts"
+  ],
+  "devDependencies": {
+    "@types/react-native": "^0.69.3"
+  }
+}
