@@ -1,14 +1,14 @@
 use std::path::Path;
 
-
-use swc_ecma_quote::quote;
-use swc_plugin::{plugin_transform, TransformPluginProgramMetadata};
-use swc_plugin::ast::{as_folder, Ident, ImportDecl, ImportSpecifier, ModuleItem, Program};
-use swc_plugin::ast::FoldWith;
-use swc_plugin::ast::VisitMut;
-use swc_plugin::ast::VisitMutWith;
-use swc_plugin::syntax_pos::DUMMY_SP;
-
+use swc_common::DUMMY_SP;
+use swc_core::{ecma::{ast::Ident, ast::Program, visit::FoldWith}, plugin::{
+    plugin_transform,
+    proxies::TransformPluginProgramMetadata,
+}, quote};
+use swc_core::ecma::ast::{ImportDecl, ImportSpecifier, ModuleItem};
+use swc_core::ecma::visit::as_folder;
+use swc_core::ecma::visit::VisitMut;
+use swc_core::ecma::visit::VisitMutWith;
 
 #[derive(Debug)]
 struct CssModuleImport {
